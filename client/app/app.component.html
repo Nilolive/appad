@@ -1,0 +1,119 @@
+<div class="page-header">
+
+  <div class="example-container">
+    <!--[class.example-is-mobile]="mobileQuery.matches"-->
+
+    <mat-sidenav-container class="all-wrap" fullscreen>
+      <mat-sidenav #sidenav>
+        <mat-toolbar color="primary">
+
+          <section>
+            <a href="#">
+              <img src="/assets/nav_logo_Bairro_Social.png" alt="Bairro Social">
+            </a>
+            <span style="padding-left:10px">Bairro Social</span>
+          </section>
+        </mat-toolbar>
+        <mat-list>
+          <mat-list-item [routerLink]="['./']" (click)="sidenav.close()" *ngIf="auth.loggedIn"> Dashboard</mat-list-item>
+          <mat-list-item routerLink="/register" (click)="sidenav.close()" routerLinkActive="active" *ngIf="auth.loggedIn"> Colaboradores</mat-list-item>
+          <mat-list-item [routerLink]="['/anunciantes']" (click)="sidenav.close()" *ngIf="auth.loggedIn"> Anunciantes</mat-list-item>
+          <mat-list-item [routerLink]="['/login']" (click)="sidenav.close()" *ngIf="!auth.loggedIn"> Anúncios</mat-list-item>
+          <mat-list-item [routerLink]="['/usuarios']" (click)="sidenav.close()" *ngIf="auth.loggedIn"> Usuários</mat-list-item>
+          <mat-list-item [routerLink]="['/depoimentos']" (click)="sidenav.close()"> Depoimentos</mat-list-item>
+          <mat-list-item [routerLink]="['/parametrizacao']" (click)="sidenav.close()" *ngIf="auth.loggedIn"> Parametrização</mat-list-item>
+          <mat-list-item [routerLink]="['/register']" (click)="sidenav.close()"> Novo</mat-list-item>
+          <mat-list-item [routerLink]="['/login']" (click)="sidenav.close()" *ngIf="!auth.loggedIn"> Login</mat-list-item>
+          <mat-list-item [routerLink]="['/logout']" (click)="sidenav.close()" *ngIf="auth.loggedIn"> Logout</mat-list-item>
+        </mat-list>
+      </mat-sidenav>
+
+      <div class="page-wrap">
+        <header role="banner">
+          <mat-toolbar color="accent" style="color:#000000">
+            <button type="button" mat-icon-button (click)="sidenav.open()" title="Open sidenav" fxHide="false" fxHide.gt-sm>
+              <mat-icon class="mat-icon">menu</mat-icon>
+            </button>
+            <section>
+              <a href="#"><img src="/assets/nav_logo_Bairro_Social.png" alt="Bairro Social"></a>
+              <span style="padding-left:10px">Bairro Social</span>
+            </section>
+            <span class="example-spacer"></span>
+            <span class="demo-fill-remaining"></span>
+            <section>
+              <mat-menu #appMenu="matMenu" x-position="before" #menu="matMenu">
+                <div>
+                  <button mat-icon-button rocuterLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+                    <mat-icon class="fa fa-home" mat-24></mat-icon>
+                  </button>
+                </div>
+                <div>
+                  <button mat-icon-button routerLink="/login" routerLinkActive="active">
+                    <mat-icon class="fa fa-sign-in"></mat-icon>
+                  </button>
+                </div>
+
+              </mat-menu>
+            </section>
+
+            <div fxLayout="row" fxShow="false" fxShow.gt-sm>
+              <section>
+
+                <button mat-icon-button rocuterLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+                  <mat-icon class="fa fa-home"></mat-icon>
+                </button>
+
+                <button mat-icon-button routerLink="/login" routerLinkActive="active" *ngIf="!auth.loggedIn">
+                  <mat-icon class="fa fa-sign-in"></mat-icon>
+                </button>
+
+                <button mat-icon-button id="header_menu" [matMenuTriggerFor]="appMenu">
+                  <mat-icon class="fa fa-cog"></mat-icon>
+                </button>
+
+              </section>
+            </div>
+
+            <mat-menu #appMenu="matMenu" yPosition="below" class="header_menu">
+              <div>
+                <button mat-icon-button routerLink="/projetos" routerLinkActive="active">
+                  <mat-icon class="fa fa-file"></mat-icon> Projetos
+                </button>
+              </div>
+              <div>
+                <button mat-icon-button routerLink="/register" routerLinkActive="active" *ngIf="!auth.loggedIn">
+                  <mat-icon class="fa fa-user"></mat-icon> Novo
+                </button>
+              </div>
+              <div>
+                <button mat-icon-button routerLink="/admin" routerLinkActive="active" *ngIf="auth.loggedIn && auth.isAdmin">
+                  <mat-icon class="fa fa-lock"></mat-icon> Admin
+                </button>
+              </div>
+              <div>
+                <button mat-icon-button routerLink="/logout" routerLinkActive="active" *ngIf="auth.loggedIn">
+                  <mat-icon class="fa fa-sign-out"></mat-icon> Sair
+                </button>
+              </div>
+            </mat-menu>
+
+          </mat-toolbar>
+        </header>
+        <main class="content">
+          <mat-card-content>
+            <router-outlet></router-outlet>
+          </mat-card-content>
+
+        </main>
+        <footer>
+          <span style="text-align: center">&nbsp; 2017 Bairro Social V0.1.</span>
+        </footer>
+      </div>
+    </mat-sidenav-container>
+
+
+
+  </div>
+
+  <!--/.toolbar -->
+

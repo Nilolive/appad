@@ -1,0 +1,35 @@
+<app-toast [message]="toast.message"></app-toast>
+<mat-card>
+  <mat-card-content>
+
+      <mat-card-subtitle>Acesse sua conta</mat-card-subtitle>
+
+
+    <form [formGroup]="loginForm" (ngSubmit)="login()">
+
+        <div flex fxLayout="row" fxLayout.lt-sm="column">
+            <div class="col-md-6 col-sm-12" fxFlex="30%">
+                <mat-form-field>
+                    <span>
+                      <mat-icon [class.primary]="email"></mat-icon>&nbsp;</span>
+                    <input matInput placeholder="Email" formControlName="email" required>
+                  </mat-form-field>
+            </div>
+            <div class="col-md-6 col-sm-12" fxFlex="30%">
+                <mat-form-field>
+                    <span>
+                      <mat-icon [class.primary]="password"></mat-icon>&nbsp;</span>
+                    <input matInput placeholder="password" formControlName="password" required>
+                  </mat-form-field>
+            </div>
+            <div class="col-md-6 col-sm-12" fxFlex="30%"></div>
+        </div>
+
+      <div>
+        <button mat-button>
+          <i class="fa fa-login"></i> Login</button>
+      </div>
+    </form>
+
+  </mat-card-content>
+</mat-card>
