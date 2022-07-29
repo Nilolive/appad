@@ -1,122 +1,41 @@
-# NodeJS Auth REST API example with Express, Mysql, and JWT
+# Angular-CRUD
 
-## Features
-1. User can sign up
-2. User can sign in
+Complete CRUD with Angular, Angular Material, sessions, JSON Web Token (JWT), routes & pagination.
 
-## API endpoints
+## Backend
+You can use this repo with these backends examples:
 
-1. `POST /api/auth/signup`: Creates a new user
-2. `POST /api/auth/signin`: Logs in a user
+| Framework | DataBase | Repo |
+| --- | --- | --- |
+| NodeJS with ExpressJSnode-js-api-massive-js). |
+| NodeJS with ExpressJS 📦 | MongoDB with Mongoose | WIP |
+| Python 🐍 with Flask 🌶 | PostgreSQL | WIP |
 
-## Body Payload Specification
-Signup expects
+## Screenshots
 
-```js
-{
-    firstname: string,
-    lastname: string,
-    email: string,
-    password: string
-}
+<p>
+    <img src="/capturas/login.png" alt="screenshot" align="center">
+</p>
+<p align="center">
+    <img src="/capturas/grid-v3.png" alt="screenshot" align="center">
+</p>
+
+## Get the code
+
 ```
 
-Signin expects
-
-```js
-{
-    email: string,
-    password: string
-}
-```
-## Tools
-* NodeJS/Express: Server
-* MySQL: Storage
-* JWT: Token based authentication
-* bcryptjs: Password security
-* winston/morgan: Logs
-* Joi: Validations
-
-## Available scripts
-* `start`: Starts the server with node
-* `start:dev`: Starts the server in watch mode
-* `db:up`: Creates the database
-* `db:down`: Drops the database
-* `tables:up`: Creates database tables
-* `db:init`: Creates both the database and tables
-
-## Getting started
-
-You can either fork this repository or clone it by starting your terminal, then change the directory to where you would like to save it and run
-
-```sh
-git clone https://github.com/desirekaleba/node-mysql-jwt-auth.git
-```
-Change to the newly downloaded directory with
-
-```sh
-cd node-mysql-jwt-auth
 ```
 
-Rename the file named `.env.example` to `.env` and update the variable values with valid ones
+## Run the app
 
-Install the required dependencies with
-
-```sh
-npm install
+```
+$ ng serve
 ```
 
-Initialize the database with
+## Development
 
-```sh
-npm run db:init
-```
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-Start the app with
+## Further help
 
-```sh
-npm start
-```
-
-You can also start it in watch mode with
-
-```sh
-npm run start:dev
-```
-
-## Folder structure
-```sh
-.
-├── README.md
-├── package-lock.json
-├── package.json
-└── src
-    ├── app.js
-    ├── config
-    │   ├── db.config.init.js
-    │   └── db.config.js
-    ├── controllers
-    │   └── auth.controller.js
-    ├── database
-    │   ├── queries.js
-    │   └── scripts
-    │       ├── dbDown.js
-    │       ├── dbUp.js
-    │       └── tablesUp.js
-    ├── index.js
-    ├── middlewares
-    │   ├── asyncHandler.js
-    │   ├── checkEmail.js
-    │   └── validatorHandler.js
-    ├── models
-    │   └── user.model.js
-    ├── routes
-    │   └── auth.route.js
-    ├── utils
-    │   ├── logger.js
-    │   ├── password.js
-    │   ├── secrets.js
-    │   └── token.js
-    └── validators
-        └── auth.js
-```
+To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
